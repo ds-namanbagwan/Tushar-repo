@@ -1,0 +1,29 @@
+{
+  "$id": "site-entity",
+  "filter": {
+    "entityIds": [
+      "header&footer"
+    ]
+  },
+  "source": "knowledgeGraph",
+  "fields": [
+    "name",
+    "c_restroimage",
+    "c_headerLink",
+    "c_footerimage",
+    "c_footerLink",
+    "mainPhone",
+    "fax",
+    "emails",
+    "c_sidefooter",
+    "c_socaldata",
+    "c_bannerimages",
+    "photoGallery"
+  ],
+  "localization": {
+    "locales": [
+      "en"
+    ],
+    "primary": false
+  }
+}
