@@ -9,13 +9,14 @@ import { JsonLd } from "react-schemaorg";
 import Opening from "../components/commons/openClose";
 import { nearByLocation } from "../types/nearByLocation";
 import Logo from "../images/logo-header.svg"
-import offerBanner from "../images/offer-banner.jpg"
+// import offerBanner from "../images/offer-banner.jpg"
 import IframeMap from "../components/locationDetail/IframeMap";
 import "../index.css";
 import Banner from "../components/locationDetail/Banner";
 import FAQs from "../components/commons/FAQs";
 import Services from "../components/commons/Services";
 import Faq from "../components/locationDetail/FAQS1";
+import offerBanner from "../components/locationDetail/offerbanner";
 
 import {
   Template,
@@ -58,6 +59,7 @@ import Header from "../components/layouts/header";
 import Menuitem1 from "../components/commons/Menuitem1";
 import { Geosearch } from "../config/geosearchnearbylocation";
 import Banner1 from "../components/locationDetail/Banner1";
+import Offerbanner from "../components/locationDetail/offerbanner";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -90,6 +92,7 @@ export const config: TemplateConfig = {
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
+      "c_offerbanner"
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -308,7 +311,8 @@ const Location: Template<ExternalApiRenderData> = ({
     c_servicesdata,
     c_menuphoto,
     c_aboutwebsite,
-    dm_directoryParents
+    dm_directoryParents,
+    c_offerbanner
     
   } = document;
  
@@ -528,8 +532,13 @@ breadcrumbScheme.push({
 
         <div style={{textAlign:"center", marginTop:"50px"}}><div className="sec-title"><h2>MENU</h2></div>
         {c_menuphoto?(<Menuitem1 c_menuphoto={c_menuphoto}/>):("")}          
-        </div>       
-        
+        </div> 
+
+        <div style={{textAlign:"center", marginTop:"50px"}}><div className="sec-title"><h2>OFFERS</h2></div>
+        {c_offerbanner?(<Offerbanner c_offerbanner={c_offerbanner}/>):("")}          
+        </div> 
+
+
         <div style={{textAlign:"center",marginTop:"50px"}}><div className="sec-title"><h2>SERVICES</h2></div>
         {c_servicesdata?(<Services service={c_servicesdata}/>):("")}
        </div>

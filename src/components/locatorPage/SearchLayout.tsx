@@ -151,10 +151,10 @@ const SearchLayout = (props: any): JSX.Element => {
     setInputValue('');
     if (searchKey[0].value != "") {
       getCoordinates(Search);
-    }
-    // console.log(locationinbuit.length,"fisttimedispaly")
+    }   
+    // alert("541543246"); 
     if (locationinbuit.length == 0) {
-      setDisplaymsg(true)
+      setDisplaymsg(true);
     } else {
       setDisplaymsg(false);
     }
@@ -235,7 +235,7 @@ const SearchLayout = (props: any): JSX.Element => {
         <div className="container-custom">
           <ul>
             <li>
-              <a href="#" className="home"> Home</a>
+              <a href="#" className="home">Home</a>
             </li>
             <li>{StaticData.locator_breadcrumb}</li>
           </ul>

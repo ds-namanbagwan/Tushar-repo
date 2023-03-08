@@ -1,7 +1,7 @@
 export const StaticData = {
     Meta_title: " RESTAURANT Demo - Online Restaurant View",
     Meta_description: "RESTAURANT LOCATION",
-    locator_breadcrumb: "Store",
+    locator_breadcrumb: "Restaurant",
     FindLocationtext: "Find Restaurant Location",
     Usemylocation: "Use My Location",
     Search: "Search",

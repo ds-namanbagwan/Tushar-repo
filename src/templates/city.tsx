@@ -63,7 +63,7 @@ export const config: TemplateConfig = {
   },
 };
 
-export const getPath: GetPath<TemplateProps> = ({ document}) => {
+export const getPath: GetPath<TemplateProps> = ({ document }) => {
   var url: any = ""
   document?.dm_directoryParents?.map((i: any) => {
     if (i.meta.entityType.id == 'ce_country') {
@@ -81,10 +81,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   path,
   document,
 }): HeadConfig => {
-  var canonical="";
-   document?.dm_directoryChildren?.map((entity: any) => {
-      canonical=  entity.address.countryCode.toLowerCase().replaceAll(" ", "-") + '/' +  entity.address.region.toLowerCase().replaceAll(" ", "-");
-          })
+  var canonical = "";
+  document?.dm_directoryChildren?.map((entity: any) => {
+    canonical = entity.address.countryCode.toLowerCase().replaceAll(" ", "-") + '/' + entity.address.region.toLowerCase().replaceAll(" ", "-");
+  })
 
   return {
     title: `Restaurant Near Me.`,
@@ -98,13 +98,13 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           href: favicon,
         },
       },
-        {
-          type: "meta",
-          attributes: {
-            name: "description",
-            content:`${document.c_meta_description?document.c_meta_description:`Use this page to find your nearest MGM store in ${document.name} and discover the location details you need to visit us today.`}`,
-          },
+      {
+        type: "meta",
+        attributes: {
+          name: "description",
+          content: `${document.c_meta_description ? document.c_meta_description : `Use this page to find your nearest MGM store in ${document.name} and discover the location details you need to visit us today.`}`,
         },
+      },
 
       //   {
       //     type: "meta",
@@ -113,73 +113,71 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
       //       content: `${document.c_metaTitle}`,
       //     },
       //   },
-        {
-          type: "meta",
-          attributes: {
-            name: "author",
-            content: StaticData.Brandname,
-          },
+      {
+        type: "meta",
+        attributes: {
+          name: "author",
+          content: StaticData.Brandname,
         },
-        {
-          type: "meta",
-          attributes: {
-            name: "keywords",
-            content: document.name,
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "keywords",
+          content: document.name,
         },
-        {
-          type: "meta",
-          attributes: {
-            name: "robots",
-            content: "noindex, nofollow",
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "robots",
+          content: "noindex, nofollow",
         },
+      },
 
-        {
-          type: "link",
-          attributes: {
-            rel: "canonical",
-            href: `${
-              stagingBaseurl 
-                 ? stagingBaseurl + canonical + "/"+ document.slug + ".html"
-                 : "/" + document.slug + ".html"
+      {
+        type: "link",
+        attributes: {
+          rel: "canonical",
+          href: `${stagingBaseurl
+              ? stagingBaseurl + canonical + "/" + document.slug + ".html"
+              : "/" + document.slug + ".html"
             }`,
-          },
         },
+      },
       //   // /og tags
 
-        {
-          type: "meta",
-          attributes: {
-            property: "og:url",
-            content: `${
-              stagingBaseurl 
-                 ? stagingBaseurl + canonical + "/"+ document.slug + ".html"
-                 : "/" + document.slug + ".html"
+      {
+        type: "meta",
+        attributes: {
+          property: "og:url",
+          content: `${stagingBaseurl
+              ? stagingBaseurl + canonical + "/" + document.slug + ".html"
+              : "/" + document.slug + ".html"
             }`,
-          },
         },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:description",
-            content: `RESTAURANT.`,
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:description",
+          content: `RESTAURANT.`,
         },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:title",
-            content: `RESTAURANT NEAR ME.`,
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:title",
+          content: `RESTAURANT NEAR ME.`,
         },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:image",
-            content: favicon,
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:image",
+          content: favicon,
         },
+      },
 
       {
         type: "meta",
@@ -192,7 +190,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:url",
-          content: `/${document.slug?document.slug:`${document.name.toLowerCase()}`}.html`,
+          content: `/${document.slug ? document.slug : `${document.name.toLowerCase()}`}.html`,
         },
       },
 
@@ -200,7 +198,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:description",
-          content: `${document.c_meta_description?document.c_meta_description:`Find MGM Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`
+          content: `${document.c_meta_description ? document.c_meta_description : `Find MGM Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`
         },
       },
     ],
@@ -255,7 +253,7 @@ const City: Template<TemplateRenderProps> = ({
     }
     // let key: any = Object.keys(entity.hours)[0];
     var url = "";
-    var name: any = "/"+document.dm_directoryParents[1].slug+"/"+dm_directoryParents[2].slug+"/"+document.slug + "/"+ entity.id ;
+    var name: any = "/" + document.dm_directoryParents[1].slug + "/" + dm_directoryParents[2].slug + "/" + document.slug + "/" + entity.id;
     // console.log(name,'namenamenamenamenamenamename')
     var region: any = entity.address.region.toLowerCase();
     var initialregion: any = region.toString();
@@ -277,35 +275,35 @@ const City: Template<TemplateRenderProps> = ({
 
       <div className="nearby-card">
         <div className="location-name-miles icon-row">
-        {/* <div className="icon"> <img className=" " src={mapimage} width="20" height="20"
+          {/* <div className="icon"> <img className=" " src={mapimage} width="20" height="20"
                       alt="" /></div> */}
           <h2><Link className="inline-block notHighlight" href={url}
-           data-ya-track={`viewstore-${entity.name}`}
-           eventName={`viewstore-${entity.name}`}
-           rel="noopener noreferrer"
+            data-ya-track={`viewstore-${entity.name}`}
+            eventName={`viewstore-${entity.name}`}
+            rel="noopener noreferrer"
           >{entity.name}</Link></h2>
         </div>
         <div className="icon-row">
           <Address address={entity.address} />
         </div>
-        {entity.mainPhone?
-        <div className="icon-row">
-           {/* <div className="icon">
+        {entity.mainPhone ?
+          <div className="icon-row">
+            {/* <div className="icon">
            <img className=" " src={Phonesvg} width="20" height="20"
                         alt="" />
                         </div> */}
-          <div className="content-col">
-            <a href={`tel:${entity.mainPhone}`}>{entity.mainPhone}</a>
-          </div>
-        </div>:''}
-       
+            <div className="content-col">
+              <a href={`tel:${entity.mainPhone}`}>{entity.mainPhone}</a>
+            </div>
+          </div> : ''}
+
         <div className="icon-row">
           <div className="content-col open-now-string">
-           
-            {typeof entity.hours?.reopenDate!="undefined"?
-            <h6>{StaticData.tempClosed}</h6>
-          :<OpenClose timezone={entity.timezone} hours={entity.hours}/>}
-           
+
+            {typeof entity.hours?.reopenDate != "undefined" ?
+              <h6>{StaticData.tempClosed}</h6>
+              : <OpenClose timezone={entity.timezone} hours={entity.hours} />}
+
           </div>
         </div>
         {/* <div className="icon-row content-col availability-col">
@@ -320,16 +318,16 @@ const City: Template<TemplateRenderProps> = ({
 
         <div className="button-bx">
           <Link className="btn" href={url}
-           data-ya-track={`viewstore-${entity.name}`}
-           eventName={`viewstore-${entity.name}`}
-           rel="noopener noreferrer"
+            data-ya-track={`viewstore-${entity.name}`}
+            eventName={`viewstore-${entity.name}`}
+            rel="noopener noreferrer"
           >
 
             {StaticData.StoreDetailbtn}</Link>
           <GetDirection buttonText={StaticData.getDirection} address={entity.address} latitude={entity.yextDisplayCoordinate.latitude} longitude={entity.yextDisplayCoordinate.longitude} />
         </div>
       </div>
-  );
+    );
   });
   function getDirectionUrl(entitiy: any) {
     var origin: any = null;
@@ -456,29 +454,29 @@ const City: Template<TemplateRenderProps> = ({
           itemListElement: breadcrumbScheme,
         }}
       /> */}
-      <Header1 _site={_site}/>
-        
-         <Banner1 _site={_site}/>
+      <Header1 _site={_site} />
 
-         <BreadCrumbs
-          name={name}
-          address={address}
-          parents={dm_directoryParents}
-          baseUrl={relativePrefixToRoot}
-        ></BreadCrumbs>
-        <div className="content-list city-page">
-          <div className="container mx-auto">
-            <div className="sec-title">
-              <h2>
+      <Banner1 _site={_site} />
+
+      <BreadCrumbs
+        name={name}
+        address={address}
+        parents={dm_directoryParents}
+        baseUrl={relativePrefixToRoot}
+      ></BreadCrumbs>
+      <div className="content-list city-page">
+        <div className="container mx-auto">
+          <div className="sec-title">
+            <h2>
               {name}
-              </h2>
-            </div>
-            <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem]">
-              {childrenDivs}
-            </div>
+            </h2>
+          </div>
+          <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem]">
+            {childrenDivs}
           </div>
         </div>
-      <Footer _site={_site}/>
+      </div>
+      <Footer _site={_site} />
     </>
   );
 };
